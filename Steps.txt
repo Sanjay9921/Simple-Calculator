@@ -1,0 +1,96 @@
+### Commands
+
+1. django-admin startproject DjangoSimpleCalculator
+2. cd DjangoSimpleCalculator
+3. python manage.py startapp calculator 
+
+GOTO Python checklist
+
+4. mkdir templates 
+
+GOTO index.html
+
+5. mkdir static 
+
+GOTO css and js files
+ 
+6. python manage.py migrate
+7. python manage.py runserver
+
+### Python checklist
+
+#### calculator folder:
+
+1. views.py
+
+from django.shortcuts import render
+
+# Create your views here.
+
+def index(request):
+    return render(request, 'index.html')
+
+
+2. create urls.py
+
+from django.urls import re_path as url
+from calculator import views #calculator is the app name you created in step 3 of commands
+
+urlpatterns = [
+    url(r'^$', views.index, name='index'),
+]
+
+#### DjangoSimpleCalculator folder:
+
+1. urls.py
+
+from django.contrib import admin
+from django.urls import path
+
+from django.urls import re_path as url, include
+
+urlpatterns = [
+    url(r'^$', include('calculator.urls')), #calculator is the app name you created in step 3 of commands
+    path('admin/', admin.site.urls),
+]
+
+2. settings.py
+
+(Add the following lines to the existing code)
+import os
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+#Add 'calculator' to INSTALLED_APPS list [with a comma after calculator - always gives error if this is missed]
+
+#Add TEMPLATE_DIR to DIRS of TEMPLATES list --> DIRS: [TEMPLATE_DIR]
+
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
+
+### Index.html
+
+Make sure you followed all the steps above and then proceed to work on index.html in templates folder
+
+Additional Code
+
+After !Doctype - {% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href='{% static "css/script.css" %}'>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+
+<script type="text/javascript" src='{% static "js/script.js" %}'></script>
+
+### CSS
+
+Make sure you followed all the steps above and then proceed to work on script.css in static/css folder
+
+### JS 
+
+Make sure you followed all the steps above and then proceed to work on script.js in static/js folder
+
+

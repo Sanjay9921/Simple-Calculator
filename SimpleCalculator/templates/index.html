@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Project | Simple Calculator</title>
+
+    <!--Boostrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--Local CSS-->
+    <link rel="stylesheet" type="text/css" href='{% static "css/script.css" %}'>
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Django > Simple Calculator App</h1>
+            <div class="lead">
+                <p>Author: Sanjay Prabhu K.</p>
+            </div>
+            <hr class="my-4">
+        </div>
+
+        <textarea id="txtResult" readonly row="3" cols="25"></textarea>
+
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><button id="btnClear" class="btn btn-danger">C</button></td>
+                <td><button id="btnDelete" class="btn btn-default">&#9746;</button></td>
+            </tr>
+            <tr>
+				<td><button id="btn7" class="btn btn-default">7</button></td>
+				<td><button id="btn8" class="btn btn-default">8</button></td>
+				<td><button id="btn9" class="btn btn-default">9</button></td>
+				<td><button id="btnOp3" class="btn btn-default">&div;</button></td>
+			</tr>
+
+			<tr>
+				<td><button id="btn4" class="btn btn-default">4</button></td>
+				<td><button id="btn5" class="btn btn-default">5</button></td>
+				<td><button id="btn6" class="btn btn-default">6</button></td>
+				<td><button id="btnOp2" class="btn btn-default">&times;</button></td>
+			</tr>
+
+			<tr>
+				<td><button id="btn1" class="btn btn-default">1</button></td>
+				<td><button id="btn2" class="btn btn-default">2</button></td>
+				<td><button id="btn3" class="btn btn-default">3</button></td>
+				<td><button id="btnOp1" class="btn btn-default">&minus;</button></td>
+			</tr>
+
+			<tr>
+				<td><button id="btnDeci" class="btn btn-default">.</button></td>
+				<td><button id="btn0" class="btn btn-default">0</button></td>
+				<td><button id="btnEq" class="btn btn-default">=</button></td>
+				<td><button id="btnOp0" class="btn btn-default">&plus;</button></td>
+			</tr>
+        </table>
+    </div>
+
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+
+    <!--Local JS-->
+    <script type="text/javascript" src='{% static "js/script.js" %}'></script>
+</body>
+</html>
